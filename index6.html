@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You Louvél</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #000 70%, #020024);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #fff;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 3em;
+      text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+      margin-bottom: 40px;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+      to   { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+    }
+
+    .garden {
+      position: relative;
+      width: 100%;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .flower {
+      position: relative;
+      width: 100px;
+      height: 150px;
+      animation: grow 2s ease forwards;
+    }
+
+    @keyframes grow {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .stem {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 100px;
+      background: linear-gradient(to bottom, #0ff, #006);
+      border-radius: 3px;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .petal {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #ff69b4, #ff1493);
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      animation: glow 2s infinite alternate;
+    }
+
+    .petal:nth-child(1) { transform: translate(-30px, -20px); }
+    .petal:nth-child(2) { transform: translate(10px, -40px); }
+    .petal:nth-child(3) { transform: translate(50px, -20px); }
+    .petal:nth-child(4) { transform: translate(10px, 0px); }
+
+    .center {
+      width: 25px;
+      height: 25px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 38px;
+      box-shadow: 0 0 20px yellow;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #ff69b4); }
+      to   { filter: drop-shadow(0 0 20px #ff69b4); }
+    }
+
+    /* Bintang background */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>I Love You Louvél</h1>
+  <div class="garden">
+    <div class="flower">
+      <div class="stem"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower" style="animation-delay:0.5s;">
+      <div class="stem"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower" style="animation-delay:1s;">
+      <div class="stem"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower" style="animation-delay:1.5s;">
+      <div class="stem"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="center"></div>
+    </div>
+  </div>
+
+  <!-- Bintang random -->
+  <div class="star" style="top:20px; left:50px;"></div>
+  <div class="star" style="top:80px; left:200px;"></div>
+  <div class="star" style="top:150px; left:120px;"></div>
+  <div class="star" style="top:250px; left:300px;"></div>
+  <div class="star" style="top:400px; left:80px;"></div>
+</body>
+        </html>
+  
