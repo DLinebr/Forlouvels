@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>i love you Louvél</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --bg2:#0e2040;
+    --stem:#2d9b6c;
+    --leaf:#45c189;
+    --petal1:#ff7aa8;
+    --petal2:#ff4e8a;
+    --core:#ffd166;
+    --glow: #ffd16655;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    background:
+      radial-gradient(1400px 800px at 50% 120%, var(--bg2) 0 40%, transparent 60%),
+      radial-gradient(900px 600px at 80% -10%, #142650 0 35%, transparent 60%),
+      linear-gradient(#070a14,#0b1020 50%, #0b1020);
+    font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    overflow:hidden;
+    color:#e9edf7;
+    display:grid;
+    place-items:center;
+  }
+
+  /* fireflies */
+  .sky{position:fixed; inset:0; pointer-events:none; overflow:hidden}
+  .dot{
+    position:absolute; width:6px; height:6px; border-radius:50%;
+    background: radial-gradient(circle,#fff,#fff0 55%);
+    opacity:.0; animation: twinkle linear infinite;
+    filter: drop-shadow(0 0 6px #fff8);
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0; transform:translateY(0) scale(.6)}
+    50%{opacity:1; transform:translateY(-12px) scale(1)}
+  }
+
+  /* ground mist */
+  .fog{
+    position:fixed; inset:auto 0 0 0; height:28vh; 
+    background: radial-gradient(60% 60% at 50% 100%, #fff1 0 40%, transparent 70%);
+    filter: blur(6px); pointer-events:none;
+  }
+
+  .stage{
+    position:relative; width:min(560px,92vw); height:min(560px,92vw);
+  }
+
+  /* stem */
+  .stem{
+    position:absolute; left:50%; bottom:10%;
+    width:10px; height:40%;
+    background: linear-gradient(#228a62,var(--stem));
+    border-radius:10px;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom;
+    animation: grow 1.8s ease-out .2s forwards;
+    box-shadow: 0 0 12px #1aa37122 inset;
+  }
+  @keyframes grow{to{transform:translateX(-50%) scaleY(1)}}
+
+  /* leaves */
+  .leaf{
+    position:absolute; width:120px; height:60px; background:var(--leaf);
+    left:50%; bottom:35%; border-radius:60px 10px 60px 10px / 60px 10px 60px 10px;
+    transform-origin: left bottom;
+    transform: translateX(-40%) rotate(-18deg) scale(0);
+    filter: drop-shadow(0 6px 10px #0005);
+    background: radial-gradient(120px 60px at 70% 40%, #74ffbf 0 25%, #2fb780 55%, #159e6e 80%);
+    animation: pop .8s ease-out 1.3s forwards;
+  }
+  .leaf.r{ bottom:48%; transform: translateX(-60%) rotate(205deg) scale(0); animation-delay:1.45s }
+  @keyframes pop{to{transform:translateX(var(--tx, -40%)) rotate(var(--rot, -18deg)) scale(1)}}
+
+  /* flower core */
+  .core{
+    position:absolute; left:50%; bottom:56%;
+    width:76px; height:76px; border-radius:50%;
+    background: radial-gradient(circle at 40% 40%, #fff6, #fff0 40%),
+                radial-gradient(circle at 50% 55%, var(--core) 0 55%, #e9a900 70%);
+    transform: translate(-50%,50%) scale(0);
+    box-shadow: 0 0 30px var(--glow), 0 0 80px var(--glow);
+    animation: coreIn .7s ease-out 2.1s forwards, pulse 4s ease-in-out 2.8s infinite;
+    z-index:2;
+  }
+  @keyframes coreIn{to{transform:translate(-50%,50%) scale(1)}}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 24px var(--glow),0 0 60px var(--glow)}
+    50%{box-shadow:0 0 40px var(--glow),0 0 120px var(--glow)}
+  }
+
+  /* petals */
+  .petal{
+    position:absolute; left:50%; bottom:56%;
+    width:120px; height:120px;
+    transform-origin: 10% 90%;
+    transform: translate(-58%,38%) rotate(var(--a)) scale(0);
+    filter: drop-shadow(0 8px 16px #0005);
+    animation: bloom 1s cubic-bezier(.2,.7,.2,1) calc(1.4s + var(--d)) forwards;
+    z-index:1;
+  }
+  .p{
+    position:absolute; inset:0; border-radius:60% 40% 60% 40%/70% 40% 60% 30%;
+    background:
+      radial-gradient(circle at 30% 25%, #fff6, #fff0 20%),
+      radial-gradient(circle at 60% 70%, #ff99bd 0 35%, transparent 55%),
+      radial-gradient(120px 140px at 40% 60%, var(--petal1), var(--petal2) 70%);
+  }
+  .petal:before{
+    content:""; position:absolute; inset:-6px; border-radius:inherit;
+    background: radial-gradient(140px 160px at 40% 60%, #ffffff18, #ffffff00 60%);
+  }
+  @keyframes bloom{to{transform: translate(-58%,38%) rotate(var(--a)) scale(1)}}
+
+  /* text */
+  .love{
+    position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+    font-weight:700; letter-spacing:.08em; text-transform:lowercase;
+    color:#dfe8ff; opacity:0; user-select:none;
+    text-shadow: 0 2px 10px #0008, 0 0 30px #80b3ff44;
+    animation: show 1.3s ease 2.6s forwards;
+  }
+  @keyframes show{to{opacity:1}}
+</style>
+</head>
+<body>
+
+<div class="sky" id="sky"></div>
+<div class="fog"></div>
+
+<div class="stage">
+  <div class="stem"></div>
+  <div class="leaf" style="--tx:-40%; --rot:-18deg"></div>
+  <div class="leaf r" style="--tx:-60%; --rot:205deg"></div>
+
+  <!-- 8 petals around the core -->
+  <div class="petal" style="--a:0deg;   --d:.00s"><div class="p"></div></div>
+  <div class="petal" style="--a:45deg;  --d:.05s"><div class="p"></div></div>
+  <div class="petal" style="--a:90deg;  --d:.10s"><div class="p"></div></div>
+  <div class="petal" style="--a:135deg; --d:.15s"><div class="p"></div></div>
+  <div class="petal" style="--a:180deg; --d:.20s"><div class="p"></div></div>
+  <div class="petal" style="--a:225deg; --d:.25s"><div class="p"></div></div>
+  <div class="petal" style="--a:270deg; --d:.30s"><div class="p"></div></div>
+  <div class="petal" style="--a:315deg; --d:.35s"><div class="p"></div></div>
+
+  <div class="core"></div>
+</div>
+
+<div class="love">i love you Louvél</div>
+
+<script>
+  // generate soft fireflies
+  const sky = document.getElementById('sky');
+  const N = 28;
+  for(let i=0;i<N;i++){
+    const d = document.createElement('div');
+    d.className = 'dot';
+    const x = Math.random()*100, y = Math.random()*100;
+    d.style.left = x+'vw'; d.style.top = y+'vh';
+    d.style.animationDuration = (3+Math.random()*4).toFixed(2)+'s';
+    d.style.animationDelay = (Math.random()*4).toFixed(2)+'s';
+    sky.appendChild(d);
+  }
+</script>
+</body>
+  </html>
+  
