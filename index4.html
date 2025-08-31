@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I love you Louvél</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      color: #ffccd5;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 170, 200, 0.8);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff99bb, 0 0 20px #ff6699; }
+      to   { text-shadow: 0 0 20px #ffccd5, 0 0 40px #ff99bb; }
+    }
+
+    .flower {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+      transform-origin: bottom center;
+      animation: bloom 2s forwards;
+    }
+
+    .petal:nth-child(1) { transform: rotate(0deg) translateY(-20px); background: #ff99bb; }
+    .petal:nth-child(2) { transform: rotate(72deg) translateY(-20px); background: #ffb6c1; }
+    .petal:nth-child(3) { transform: rotate(144deg) translateY(-20px); background: #ff99bb; }
+    .petal:nth-child(4) { transform: rotate(216deg) translateY(-20px); background: #ffb6c1; }
+    .petal:nth-child(5) { transform: rotate(288deg) translateY(-20px); background: #ff99bb; }
+
+    .center {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: yellow;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      box-shadow: 0 0 10px rgba(255,255,0,0.7);
+    }
+
+    @keyframes bloom {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* grid banyak bunga */
+    .garden {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 80px);
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>I love you Louvél</h1>
+  <div class="garden">
+    <div class="flower">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="center"></div>
+    </div>
+    <div class="flower">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="center"></div>
+    </div>
+  </div>
+</body>
+</html>
