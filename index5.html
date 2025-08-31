@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Flowers</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .flower {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stem {
+      width: 6px;
+      height: 180px;
+      background: linear-gradient(to bottom, #0ff, #006);
+      box-shadow: 0 0 12px #0ff;
+    }
+
+    .petal {
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #0ff, #06f);
+      border-radius: 50%;
+      position: absolute;
+      animation: glow 2s infinite alternate;
+    }
+
+    .petal:nth-child(1) { top: -20px; left: -60px; }
+    .petal:nth-child(2) { top: -50px; left: -10px; }
+    .petal:nth-child(3) { top: -20px; left: 40px; }
+
+    .center {
+      width: 30px;
+      height: 30px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      box-shadow: 0 0 15px yellow;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #0ff); }
+      to   { filter: drop-shadow(0 0 20px #0ff); }
+    }
+
+    /* Tambahin bintang background */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flower">
+    <div class="stem"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <!-- Bintang random -->
+  <div class="star" style="top:20px; left:50px;"></div>
+  <div class="star" style="top:80px; left:200px;"></div>
+  <div class="star" style="top:150px; left:120px;"></div>
+  <div class="star" style="top:250px; left:300px;"></div>
+</body>
+</html>
